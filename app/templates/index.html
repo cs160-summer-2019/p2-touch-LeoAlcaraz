@@ -85,13 +85,48 @@
 	</div>
 	<script>
 	  // your solution here
-    var tap = document.getElementById('tap-box');
-    var action = new Hammer(tap);
+    //hammertime.get('pinch').set({ enable: true });
+    //hammertime.get('rotate').set({ enable: true });
+    //PINCH
+    /*var tempPinch = document.getElementById('pinch-box');
+    var action2 = new Hammer.Manager(tempPinch);
+    var pinch = new Hammer.Pinch();
+    action2.add([pinch]);
     
-    action.on("tap", function(ev) {
-      document.getElementById('tap-box').style.color = "white"; 
-     /* tap.textContent = ev.type + " gesture detected.";*/
-    })
+    action2.on("pinch", function() {
+      document.getElementById('pinch-box').style.backgroundColor = "#ff66cc"; 
+    });*/
+    
+    
+    //PRESS
+    var press = document.getElementById('press-box');
+    var action3 = new Hammer(press);
+    
+    action3.on("press", function() {
+      document.getElementById('press-box').style.backgroundColor = "#ffff99"; 
+    });
+    
+    //PAN
+    var pan = document.getElementById('pan-box');
+    var action4 = new Hammer(pan);
+    
+    action4.get('pan').set({direction: Hammer.DIRECTION_ALL});
+    action4.on("panleft panright panup pandown", function() {
+       
+      document.getElementById('pan-box').style.backgroundColor = "#ff6666"; 
+     
+    }); 
+    
+    //TAP
+    var tap = document.getElementById('tap-box');
+    var action5 = new Hammer(tap);
+    
+    action5.on("tap", function() {
+      document.getElementById('tap-box').style.backgroundColor = "white"; 
+    });
+    
+    
+     
     
   
     
