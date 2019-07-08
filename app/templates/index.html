@@ -87,15 +87,28 @@
 	  // your solution here
     //hammertime.get('pinch').set({ enable: true });
     //hammertime.get('rotate').set({ enable: true });
+    //ROTATE
+    var rotateBox = document.getElementById('rotate-box');
+    var action1 = new Hammer.Manager(rotateBox);
+    var rotate = new Hammer.Rotate();
+    action1.add([rotate]);
+    action1.get('rotate').set({enable: true}); 
+    
+    action1.on("rotate", function() {
+      document.getElementById('rotate-box').style.transform = "rotate(180deg)"; 
+    });
+    
+    
     //PINCH
-    /*var tempPinch = document.getElementById('pinch-box');
-    var action2 = new Hammer.Manager(tempPinch);
+    var pinchBox = document.getElementById('pinch-box');
+    var action2 = new Hammer.Manager(pinchBox);
     var pinch = new Hammer.Pinch();
     action2.add([pinch]);
+    action2.get('pinch').set({enable: true}); 
     
     action2.on("pinch", function() {
-      document.getElementById('pinch-box').style.backgroundColor = "#ff66cc"; 
-    });*/
+      document.getElementById('pinch-box').style.transform = "scale(2.5)"; 
+    });
     
     
     //PRESS
@@ -124,6 +137,21 @@
     action5.on("tap", function() {
       document.getElementById('tap-box').style.backgroundColor = "white"; 
     });
+    
+    //SWIPE
+    /*var swipeBox = document.getElementById('swipe-box');
+    var action6 = new Hammer.Manager(swipeBox);
+    var swipe = new Hammer.Swipe();
+    
+    action6.add(swipe);
+    
+    action6.get('swipe').set({direction: Hammer.DIRECTION_ALL});
+    action6.on("swipeleft", function() {
+       $(swipeBox).animate({left: "-=100"}, 500) 
+    }); 
+    action6.on("swiperight", function() {
+       $(swipeBox).animate({left: "+=100"}, 500) 
+    }); */
     
     
      
