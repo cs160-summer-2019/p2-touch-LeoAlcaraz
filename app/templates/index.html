@@ -85,6 +85,17 @@
 	</div>
 	<script>
 	  // your solution here
+    var tap = document.getElementById('tap-box');
+    var action = new Hammer(tap);
+    
+    action.on("tap", function(ev) {
+      document.getElementById('tap-box').style.color = "white"; 
+     /* tap.textContent = ev.type + " gesture detected.";*/
+    })
+    
+  
+    
+    
   </script>
 </body>
 </html>
