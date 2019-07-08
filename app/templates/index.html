@@ -153,7 +153,15 @@
        $(swipeBox).animate({left: "+=100"}, 500) 
     }); */
     
-    
+    var swipeBox = document.getElementById('swipe-box');
+    var action6 = new Hammer(swipeBox);
+    action6.get('swipe').set({direction: Hammer.DIRECTION_ALL});
+    action6.on("swipeleft", function() {
+      alert('You swipe left');
+    });
+    action6.on("swiperight", function() {
+      alert('You swiped right');
+    });
      
     
   
